@@ -1,7 +1,7 @@
 /* Erstellen und testen Sie anschließend folgende Klasse Mitarbeiter:
 
-getter and setter for each property
-toString */
+o	Mitarbeiter IDs sind immer positiv und vierstellig
+ */
 
 public class Mitarbeiter
 {
@@ -31,6 +31,16 @@ public class Mitarbeiter
 
     public void setId(int $newId)
     {
+        if ($newId < 0)
+        {
+            $newId = $newId * -1;
+        }
+
+        if ($newId < 1000)
+        {
+            $newId = $newId + 1000;
+        }
+
         id = $newId;
     }
 }
