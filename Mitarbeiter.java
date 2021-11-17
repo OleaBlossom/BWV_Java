@@ -24,11 +24,13 @@ public class Mitarbeiter
         name = $newName;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public void setId( int $newId) {
+    public void setId(int $newId)
+    {
         id = $newId;
     }
 }
