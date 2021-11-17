@@ -10,7 +10,8 @@ public class Mitarbeiter
 
     public Mitarbeiter(String $newName, int $newId)
     {
-        setId($newId)
+        setId($newId);
+        setName($newName);
     }
 
     public String getName()
