@@ -3,41 +3,33 @@ package MitarbeiterPackage;/* Erstellen und testen Sie anschließend folgende Kl
 o	MitarbeiterPackage.Mitarbeiter IDs sind immer positiv und vierstellig
  */
 
-public class Mitarbeiter
-{
+public class Mitarbeiter {
     private int id;
     private String name;
 
-    public Mitarbeiter(String $newName, int $newId)
-    {
+    public Mitarbeiter(String $newName, int $newId) {
         setId($newId);
         setName($newName);
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    protected void setName(String $newName)
-    {
+    protected void setName(String $newName) {
         name = $newName;
     }
 
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    protected void setId(int $newId)
-    {
-        if ($newId < 0)
-        {
+    protected void setId(int $newId) {
+        if ($newId < 0) {
             $newId = $newId * -1;
         }
 
-        if ($newId < 1000)
-        {
+        if ($newId < 1000) {
             $newId = $newId + 1000;
         }
 
