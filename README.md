@@ -1,9 +1,9 @@
 # BWV_Java
 
 Geben die Java-Quelltexte auf Moodle ab.
-1.	Recherchieren Sie die Symbolik eines Klassendiagramms. Erstellen und testen Sie anschließend folgende Klasse Mitarbeiter:
+1.	Recherchieren Sie die Symbolik eines Klassendiagramms. Erstellen und testen Sie anschließend folgende Klasse MitarbeiterPackage.Mitarbeiter:
 
-Mitarbeiter
+MitarbeiterPackage.Mitarbeiter
 id (int)
 name (String)
 getter and setter for each property
