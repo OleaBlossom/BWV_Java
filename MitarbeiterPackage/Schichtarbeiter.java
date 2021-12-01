@@ -6,12 +6,14 @@ public class Schichtarbeiter
 
     public Schichtarbeiter(String $newName, int $newId) {
         super($newName, $newId);
-        setId($newId);
+        validateId();
     }
 
-    @Override
-    public void setId(int $newId)
-    {
-        // todo: implement logic here
+    private void validateId() {
+        int $currentId = this.getId();
+
+        $currentId %= 1000;
+
+        super.setId($currentId + 3000);
     }
 }
