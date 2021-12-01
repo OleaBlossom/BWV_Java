@@ -19,7 +19,7 @@ public class Mitarbeiter
         return name;
     }
 
-    public void setName(String $newName)
+    protected void setName(String $newName)
     {
         name = $newName;
     }
@@ -29,7 +29,7 @@ public class Mitarbeiter
         return id;
     }
 
-    public void setId(int $newId)
+    protected void setId(int $newId)
     {
         if ($newId < 0)
         {
