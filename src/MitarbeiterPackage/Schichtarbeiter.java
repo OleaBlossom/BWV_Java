@@ -1,4 +1,4 @@
-package MitarbeiterPackage;
+package src.MitarbeiterPackage;
 
 public class Schichtarbeiter
         extends Mitarbeiter {

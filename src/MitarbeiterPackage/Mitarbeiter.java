@@ -1,7 +1,4 @@
-package MitarbeiterPackage;/* Erstellen und testen Sie anschließend folgende Klasse MitarbeiterPackage.Mitarbeiter:
-
-o	MitarbeiterPackage.Mitarbeiter IDs sind immer positiv und vierstellig
- */
+package src.MitarbeiterPackage;
 
 public class Mitarbeiter {
     private int id;
