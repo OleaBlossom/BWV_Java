@@ -3,9 +3,13 @@ package src.MitarbeiterPackage;
 public class Bueroarbeiter
         extends Mitarbeiter {
 
-    public Bueroarbeiter(String newName, int newId) {
+    private double festgehalt;
+
+    public Bueroarbeiter(String newName, int newId, double festgehalt) {
         super(newName, newId);
+        setFestgehalt(festgehalt);
     }
+
 
     @Override
     protected void setId(int newId) {
@@ -16,5 +20,13 @@ public class Bueroarbeiter
         newId %= 1000;
 
         super.setId(newId + 5000);
+    }
+
+    public double getFestgehalt() {
+        return this.festgehalt;
+    }
+
+    public void setFestgehalt(double amount) {
+        this.festgehalt = amount;
     }
 }
