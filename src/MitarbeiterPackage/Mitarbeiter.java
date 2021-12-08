@@ -1,6 +1,6 @@
 package src.MitarbeiterPackage;
 
-public class Mitarbeiter {
+public abstract class Mitarbeiter {
     private int id;
     private String name;
 
@@ -32,4 +32,6 @@ public class Mitarbeiter {
 
         id = newId;
     }
+
+    public abstract double einkommen();
 }

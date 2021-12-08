@@ -37,4 +37,8 @@ public class Schichtarbeiter
     public void setStundenSatz(double stundenSatz) {
         this.stundenSatz = stundenSatz;
     }
+
+    public double einkommen() {
+        return getStundenSatz() * getAnzahlStunden();
+    }
 }

@@ -49,4 +49,17 @@ public class Abteilung {
     public void removeMitarbeiter(Mitarbeiter employee) {
         this.alleMitarbeiter.remove(employee);
     }
+
+    public String gehaltsliste() {
+        StringBuilder output = new StringBuilder();
+        Manager manager = getLeiter();
+        output.append("Leiter: \n");
+        output.append(manager.getName()).append(", ").append(manager.einkommen()).append("\n");
+        output.append("Mitarbeiter: \n");
+        for (Mitarbeiter mitarbeiter : getAlleMitarbeiter()) {
+            output.append(mitarbeiter.getName()).append(", ").append(mitarbeiter.einkommen()).append("\n");
+        }
+
+        return output.toString();
+    }
 }

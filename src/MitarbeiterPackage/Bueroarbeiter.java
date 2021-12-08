@@ -22,6 +22,10 @@ public class Bueroarbeiter
         super.setId(newId + 5000);
     }
 
+    public double einkommen() {
+        return getFestgehalt();
+    }
+
     public double getFestgehalt() {
         return this.festgehalt;
     }

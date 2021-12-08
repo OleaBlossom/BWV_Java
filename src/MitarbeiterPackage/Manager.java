@@ -31,4 +31,8 @@ public class Manager extends Bueroarbeiter {
     public double berechneBonus() {
         return getFestgehalt() * getBonusSatz() / 100;
     }
+
+    public double einkommen() {
+        return getFestgehalt() + berechneBonus();
+    }
 }

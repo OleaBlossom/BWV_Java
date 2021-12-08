@@ -9,7 +9,7 @@ import src.VerwaltungPackage.Abteilung;
 public class Main {
 
     public static void main(String[] args) {
-        Mitarbeiter myObj = new Mitarbeiter("Employee", 1);
+        Bueroarbeiter myObj = new Bueroarbeiter("First Employee", 1, 25000);
         System.out.println(myObj.getId());
 
         Schichtarbeiter myObj2 = new Schichtarbeiter("Shift Worker", -5005, 25);
@@ -18,7 +18,7 @@ public class Main {
         Bueroarbeiter myObj3 = new Bueroarbeiter("Office Worker", 123456789, 8540);
         System.out.println(myObj3.getId());
 
-        Manager myObj4 = new Manager("Manager Name", 123456789, 10000, 12.5);
+        Manager myObj4 = new Manager("Manager Person", 123456789, 10000, 12.5);
         System.out.println(myObj4.getId());
         System.out.println(myObj4.berechneBonus());
 
@@ -32,13 +32,16 @@ public class Main {
         myObj5.removeMitarbeiter(myObj2);
         printEmployeesOfAbteilung(myObj5);
 
+
+        System.out.println(myObj5.gehaltsliste());
     }
 
     public static void printEmployeesOfAbteilung(Abteilung abteilung) {
         String output = "";
 
         for (Mitarbeiter mitarbeiter : abteilung.getAlleMitarbeiter()) {
-            output += "Mitarbeiter " + mitarbeiter.getId() + ": " + mitarbeiter.getName() + "\n";
+            output += "Mitarbeiter " + mitarbeiter.getId() + ": " + mitarbeiter.getName() +
+                    "(" + mitarbeiter.einkommen() + ")\n";
         }
         System.out.println((output));
     }
