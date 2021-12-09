@@ -39,6 +39,6 @@ public class Schichtarbeiter
     }
 
     public double einkommen() {
-        return getStundenSatz() * getAnzahlStunden();
+        return this.stundenSatz * this.anzahlStunden;
     }
 }
