@@ -35,4 +35,15 @@ public class Manager extends Bueroarbeiter {
     public double einkommen() {
         return getFestgehalt() + berechneBonus();
     }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", festgehalt=" + getFestgehalt() +
+                ", bonusSatz=" + bonusSatz +
+                ", einkommen=" + einkommen() +
+                '}';
+    }
 }
