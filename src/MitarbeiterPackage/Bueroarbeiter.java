@@ -33,4 +33,14 @@ public class Bueroarbeiter
     public void setFestgehalt(double amount) {
         this.festgehalt = amount;
     }
+
+    @Override
+    public String toString() {
+        return "Bueroarbeiter{" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", festgehalt=" + festgehalt +
+                ", einkommen=" + einkommen() +
+                '}';
+    }
 }

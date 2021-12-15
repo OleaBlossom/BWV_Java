@@ -41,4 +41,15 @@ public class Schichtarbeiter
     public double einkommen() {
         return this.stundenSatz * this.anzahlStunden;
     }
+
+    @Override
+    public String toString() {
+        return "Schichtarbeiter{" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", stundenSatz=" + stundenSatz +
+                ", anzahlStunden=" + anzahlStunden +
+                ", einkommen=" + einkommen() +
+                '}';
+    }
 }
