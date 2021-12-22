@@ -23,11 +23,14 @@ public abstract class Mitarbeiter {
 
     protected void setId(int newId) {
         if (newId < 0) {
-            newId = newId * -1;
+            newId = -newId;
         }
 
         if (newId < 1000) {
             newId = newId + 1000;
+        }
+        else if (newId > 9999) {
+          newId = newId % 10000;
         }
 
         id = newId;
