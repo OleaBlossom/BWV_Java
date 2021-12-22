@@ -27,7 +27,7 @@ public class Bueroarbeiter
     }
 
     public void setFestgehalt(double amount) throws IllegalArgumentException {
-        if (festgehalt > 300) {
+        if (festgehalt < 300) {
             this.festgehalt = amount;
         } else throw new IllegalArgumentException("Gehalt zu gering");
     }
