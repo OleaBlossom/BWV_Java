@@ -6,20 +6,16 @@ public class Schichtarbeiter
     private double stundenSatz;
     private int anzahlStunden;
 
-    public Schichtarbeiter(String newName, int newId, double stundenSatz) {
+    public Schichtarbeiter(String newName, int newId, double stundenSatz) throws IllegalArgumentException {
         super(newName, newId);
         setStundenSatz(stundenSatz);
     }
 
     @Override
     protected void setId(int newId) {
-        if (newId < 0) {
-            newId = newId * -1;
-        }
+        newId = Math.abs(newId) % 1000 + 3000;
 
-        newId %= 1000;
-
-        super.setId(newId + 3000);
+        super.setId(newId);
     }
 
     public int getAnzahlStunden() {
@@ -27,15 +23,19 @@ public class Schichtarbeiter
     }
 
     public void setAnzahlStunden(int stunden) {
-        this.anzahlStunden = stunden;
+        if (stunden > 0) {
+            this.anzahlStunden = stunden;
+        }
     }
 
     public double getStundenSatz() {
         return stundenSatz;
     }
 
-    public void setStundenSatz(double stundenSatz) {
-        this.stundenSatz = stundenSatz;
+    public void setStundenSatz(double stundenSatz) throws IllegalArgumentException {
+        if (stundenSatz >= 9.82) {
+            this.stundenSatz = stundenSatz;
+        } else throw new IllegalArgumentException("Stundensatz zu gering!");
     }
 
     public double einkommen() {

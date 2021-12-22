@@ -5,7 +5,7 @@ public class Bueroarbeiter
 
     private double festgehalt;
 
-    public Bueroarbeiter(String newName, int newId, double festgehalt) {
+    public Bueroarbeiter(String newName, int newId, double festgehalt) throws IllegalArgumentException {
         super(newName, newId);
         setFestgehalt(festgehalt);
     }
@@ -13,13 +13,9 @@ public class Bueroarbeiter
 
     @Override
     protected void setId(int newId) {
-        if (newId < 0) {
-            newId = newId * -1;
-        }
+        newId = Math.abs(newId) % 1000 + 5000;
 
-        newId %= 1000;
-
-        super.setId(newId + 5000);
+        super.setId(newId);
     }
 
     public double einkommen() {
@@ -30,8 +26,10 @@ public class Bueroarbeiter
         return this.festgehalt;
     }
 
-    public void setFestgehalt(double amount) {
-        this.festgehalt = amount;
+    public void setFestgehalt(double amount) throws IllegalArgumentException {
+        if (festgehalt > 300) {
+            this.festgehalt = amount;
+        } else throw new IllegalArgumentException("Gehalt zu gering");
     }
 
     @Override

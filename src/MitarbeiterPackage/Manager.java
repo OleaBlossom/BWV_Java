@@ -4,20 +4,16 @@ public class Manager extends Bueroarbeiter {
 
     private double bonusSatz;
 
-    public Manager(String newName, int newId, double festgehalt, double bonusSatz) {
+    public Manager(String newName, int newId, double festgehalt, double bonusSatz) throws IllegalArgumentException {
         super(newName, newId, festgehalt);
         setBonusSatz(bonusSatz);
     }
 
     @Override
     protected void setId(int newId) {
-        if (newId < 0) {
-            newId = newId * -1;
-        }
+        newId = Math.abs(newId) % 100 + 5000;
 
-        newId %= 100;
-
-        super.setId(newId + 5000);
+        super.setId(newId);
     }
 
     public double getBonusSatz() {
@@ -25,7 +21,10 @@ public class Manager extends Bueroarbeiter {
     }
 
     public void setBonusSatz(double amount) {
-        this.bonusSatz = amount;
+        if (amount > 0)
+        {
+            this.bonusSatz = amount;
+        }
     }
 
     public double berechneBonus() {
