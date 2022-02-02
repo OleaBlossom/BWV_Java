@@ -32,9 +32,9 @@ public abstract class Kfz {
         }
     }
 
-    public void parken() {
+    public Fahrer parken() {
         this.motorAn = false;
-        this.fahrer = null;
+        return this.aussteigen();
     }
 
     public double tanken(double liter) {
@@ -65,9 +65,11 @@ public abstract class Kfz {
         return istErlaubt;
     }
 
-    public Mitarbeiter aussteigung() {
-        return this.fahrer;
+    public Fahrer aussteigen() {
+        Fahrer ausgestiegenerFahrer = this.fahrer;
+        this.fahrer = null;
+        return ausgestiegenerFahrer;
     }
 
-    public abstract double auslastung();
+    public abstract double auslastungBerechnen();
 }
