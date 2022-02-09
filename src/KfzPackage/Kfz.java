@@ -22,8 +22,17 @@ public abstract class Kfz {
     public static final String FS_TRACKER = "T";
 
     public Kfz(double tankGroesse, Gps aktuellePosition) {
-        this.tankGroesse = tankGroesse;
+        setTankGroesse(tankGroesse);
         this.aktuellePosition = aktuellePosition;
+    }
+
+    private void setTankGroesse(double tankGroesse) {
+
+        if (tankGroesse > 0) {
+            this.tankGroesse = tankGroesse;
+        } else {
+            System.out.println("please ensure the tank can contain a positive number of liters");
+        }
     }
 
     public void fahrenZu(Gps ziel) {
@@ -37,13 +46,20 @@ public abstract class Kfz {
         return this.aussteigen();
     }
 
-    public double tanken(double liter) {
-        double ueberlauf = 0;
-        double total = this.tankinhalt + liter;
+    public double tanken(double liter) throws IllegalArgumentException {
 
-        if (total > this.tankGroesse) {
-            ueberlauf = total - this.tankGroesse;
-            this.tankinhalt = this.tankGroesse;
+        double ueberlauf = 0;
+        if (liter > 0) {
+
+            double total = this.tankinhalt + liter;
+
+            if (total > this.tankGroesse) {
+                ueberlauf = total - this.tankGroesse;
+                this.tankinhalt = this.tankGroesse;
+                System.out.println("Oops. The tank overflowed by " + ueberlauf + " liters.");
+            }
+        } else {
+            throw new IllegalArgumentException("please only fill the tank with a positive number of liters");
         }
 
         return ueberlauf;
