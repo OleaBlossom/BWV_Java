@@ -1,7 +1,6 @@
 package src.KfzPackage;
 
 import src.GpsPackage.Gps;
-import src.MitarbeiterPackage.Mitarbeiter;
 
 public class Lkw
         extends Kfz {
