@@ -1,10 +1,14 @@
 package src.KfzPackage;
 
 import src.GpsPackage.Gps;
+import src.MitarbeiterPackage.Fahrer;
 
+import java.util.Arrays;
+import java.util.List;
+
+// Lastkraftwagen
 public class Lkw
         extends Kfz {
-
 
     private double ladeflaeche;
 
@@ -15,19 +19,33 @@ public class Lkw
         setLadeflaeche(ladeflaeche);
     }
 
-    public boolean beladen(double qm) {
-        return false;
+    public void beladen(double menge) {
+
     }
 
-    public boolean entladen(double qm) {
-        return false;
+    public void entladen(double menge) {
+
+    }
+
+    public boolean einsteigenFahrer(Fahrer fahrer) {
+        List<String> erlaubteKlassen = Arrays.asList(
+                FS_KRAFTFAHRZEUG_GROSS,
+                FS_BUS_MINI,
+                FS_BUS_GROSS);
+
+        boolean istErlaubt = erlaubteKlassen.contains(fahrer.getFuehrerscheinKlasse());
+
+        if (istErlaubt) {
+            istErlaubt = super.einsteigenFahrer(fahrer);
+        }
+
+        return istErlaubt;
     }
 
     @Override
     public double auslastungBerechnen() {
         return 0;
     }
-
 
     public double getLadeflaeche() {
         return this.ladeflaeche;

@@ -2,7 +2,6 @@ package src.KfzPackage;
 
 import src.GpsPackage.Gps;
 import src.MitarbeiterPackage.Fahrer;
-import src.MitarbeiterPackage.Mitarbeiter;
 
 import java.util.*;
 
@@ -41,7 +40,7 @@ public abstract class Kfz {
         }
     }
 
-    public Fahrer parken() {
+    public void parken() {
         this.motorAn = false;
         return this.aussteigen();
     }
@@ -67,10 +66,13 @@ public abstract class Kfz {
 
     public boolean einsteigenFahrer(Fahrer fahrer) {
         List<String> erlaubteKlassen = Arrays.asList(
+                FS_MOPED,
+                FS_MOTORRAD,
                 FS_KRAFTFAHRZEUG,
                 FS_KRAFTFAHRZEUG_GROSS,
                 FS_BUS_MINI,
-                FS_BUS_GROSS);
+                FS_BUS_GROSS,
+                FS_TRACKER);
 
         boolean istErlaubt = erlaubteKlassen.contains(fahrer.getFuehrerscheinKlasse());
 
@@ -88,4 +90,8 @@ public abstract class Kfz {
     }
 
     public abstract double auslastungBerechnen();
+
+    public Fahrer getFahrer() {
+        return fahrer;
+    }
 }
