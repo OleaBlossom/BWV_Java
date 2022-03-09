@@ -12,10 +12,8 @@ public class Schichtarbeiter
     }
 
     @Override
-    protected void setId(int newId) {
-        newId = Math.abs(newId) % 1000 + 3000;
-
-        super.setId(newId);
+    public boolean validate(int id) {
+        return (id >= 3000) && (id < 4000);
     }
 
     public int getAnzahlStunden() {

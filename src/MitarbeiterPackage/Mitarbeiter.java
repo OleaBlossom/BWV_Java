@@ -5,8 +5,18 @@ public abstract class Mitarbeiter {
     private String name;
 
     public Mitarbeiter(String newName, int newId) {
-        setId(newId);
-        setName(newName);
+        boolean isValid = validate(id);
+
+        if (isValid) {
+            setId(newId);
+            setName(newName);
+        } else {
+            throw new IllegalArgumentException("please refer to the schema for creating a user id");
+        }
+    }
+
+    public boolean validate(int id) {
+        return (id >= 1000) && (id <= 9999);
     }
 
     public String getName() {
@@ -22,17 +32,6 @@ public abstract class Mitarbeiter {
     }
 
     protected void setId(int newId) {
-        if (newId < 0) {
-            newId = -newId;
-        }
-
-        if (newId < 1000) {
-            newId = newId + 1000;
-        }
-        else if (newId > 9999) {
-          newId = newId % 10000;
-        }
-
         id = newId;
     }
 

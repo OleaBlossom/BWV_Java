@@ -10,10 +10,8 @@ public class Manager extends Bueroarbeiter {
     }
 
     @Override
-    protected void setId(int newId) {
-        newId = Math.abs(newId) % 100 + 5000;
-
-        super.setId(newId);
+    public boolean validate(int id) {
+        return (id >= 5000) && (id < 6000);
     }
 
     public double getBonusSatz() {
@@ -21,8 +19,7 @@ public class Manager extends Bueroarbeiter {
     }
 
     public void setBonusSatz(double amount) {
-        if (amount > 0)
-        {
+        if (amount > 0) {
             this.bonusSatz = amount;
         }
     }

@@ -12,10 +12,8 @@ public class Bueroarbeiter
 
 
     @Override
-    protected void setId(int newId) {
-        newId = Math.abs(newId) % 1000 + 5000;
-
-        super.setId(newId);
+    public boolean validate(int id) {
+        return (id >= 5000) && (id < 6000);
     }
 
     public double einkommen() {
