@@ -42,7 +42,7 @@ public abstract class Kfz {
 
     public void parken() {
         this.motorAn = false;
-        return this.aussteigen();
+        this.aussteigen();
     }
 
     public double tanken(double liter) throws IllegalArgumentException {

@@ -12,7 +12,7 @@ public class Ptf
         extends Kfz {
 
     private int sitze;
-    private ArrayList<Mitarbeiter> passagiere = new ArrayList<Mitarbeiter>();
+    private ArrayList<Mitarbeiter> passagiere = new ArrayList<>();
 
     public Ptf(double tankGroesse, Gps aktuellePosition, int sitze) {
         super(tankGroesse, aktuellePosition);
@@ -51,8 +51,8 @@ public class Ptf
     }
 
     public void parken() {
-        // todo: finish implementing this
         this.setPassagiere(new ArrayList<>());
+        super.parken();
     }
 
     private void setPassagiere(ArrayList<Mitarbeiter> passagiere) {
