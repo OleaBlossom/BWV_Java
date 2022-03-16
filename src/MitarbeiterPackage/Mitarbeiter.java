@@ -5,7 +5,7 @@ public abstract class Mitarbeiter {
     private String name;
 
     public Mitarbeiter(String newName, int newId) {
-        boolean isValid = validate(id);
+        boolean isValid = validate(newId);
 
         if (isValid) {
             setId(newId);
