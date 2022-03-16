@@ -1,6 +1,7 @@
 package src.MitarbeiterPackage;
 
-public abstract class Mitarbeiter {
+public abstract class Mitarbeiter
+        implements Comparable {
     private int id;
     private String name;
 
@@ -25,6 +26,12 @@ public abstract class Mitarbeiter {
 
     protected void setName(String newName) {
         name = newName;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Mitarbeiter m = (Mitarbeiter) o;
+        return getName().compareToIgnoreCase(m.getName());
     }
 
     public int getId() {

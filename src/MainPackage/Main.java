@@ -6,37 +6,55 @@ import src.MitarbeiterPackage.Mitarbeiter;
 import src.MitarbeiterPackage.Schichtarbeiter;
 import src.VerwaltungPackage.Abteilung;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+import static java.util.Collections.*;
+
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Mitarbeiter Section");
-        Bueroarbeiter myObj = new Bueroarbeiter("First Employee", 1, 25000);
-        System.out.println(myObj);
+        Bueroarbeiter firstEmployee = new Bueroarbeiter("First Employee", 5000, 25000);
+        System.out.println(firstEmployee);
 
-        Schichtarbeiter myObj2 = new Schichtarbeiter("Shift Worker", -5005, 25);
-        myObj2.setAnzahlStunden(20);
-        System.out.println(myObj2);
+        Schichtarbeiter shiftWorker = new Schichtarbeiter("Shift Worker", 3005, 25);
+        shiftWorker.setAnzahlStunden(20);
+        System.out.println(shiftWorker);
 
-        Bueroarbeiter myObj3 = new Bueroarbeiter("Office Worker", 123456789, 8540);
-        System.out.println(myObj3);
+        Bueroarbeiter officeWorker = new Bueroarbeiter("Office Worker", 5001, 8540);
+        System.out.println(officeWorker);
 
-        Manager myObj4 = new Manager("Manager Person", 123456789, 10000, 12.5);
-        System.out.println(myObj4);
+        Manager managerPerson = new Manager("Manager Person", 5999, 100000, 12.5);
+        System.out.println(managerPerson);
 
         System.out.println("\n\nAbteilung Section");
 
-        Abteilung myObj5 = new Abteilung("department", myObj4);
-        System.out.println(myObj5.getLeiter());
-        System.out.println(myObj5.getAlleMitarbeiter());
-        myObj5.addMitarbeiter(myObj);
-        myObj5.addMitarbeiter(myObj2);
-        myObj5.addMitarbeiter(myObj3);
-        printEmployeesOfAbteilung(myObj5);
-        myObj5.removeMitarbeiter(myObj2);
-        printEmployeesOfAbteilung(myObj5);
+        Abteilung onlyDepartment = new Abteilung("only department", managerPerson);
+        System.out.println(onlyDepartment.getLeiter());
+        System.out.println(onlyDepartment.getAlleMitarbeiter());
+        onlyDepartment.addMitarbeiter(firstEmployee);
+        onlyDepartment.addMitarbeiter(shiftWorker);
+        onlyDepartment.addMitarbeiter(officeWorker);
+        printEmployeesOfAbteilung(onlyDepartment);
+        onlyDepartment.removeMitarbeiter(shiftWorker);
+        printEmployeesOfAbteilung(onlyDepartment);
 
 
-        System.out.println(myObj5.gehaltsliste());
+        System.out.println(onlyDepartment.gehaltsliste());
+
+        ArrayList<Mitarbeiter> listOfMitarbeiter = new ArrayList<>();
+        listOfMitarbeiter.add(firstEmployee);
+        listOfMitarbeiter.add(shiftWorker);
+        listOfMitarbeiter.add(officeWorker);
+        listOfMitarbeiter.add(managerPerson);
+
+        System.out.println(listOfMitarbeiter);
+
+        sort(listOfMitarbeiter);
+
+        System.out.println(listOfMitarbeiter);
+
     }
 
     public static void printEmployeesOfAbteilung(Abteilung abteilung) {
