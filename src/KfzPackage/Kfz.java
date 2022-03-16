@@ -5,7 +5,8 @@ import src.MitarbeiterPackage.Fahrer;
 
 import java.util.*;
 
-public abstract class Kfz {
+public abstract class Kfz
+        implements Comparable<Kfz> {
     private double tankGroesse;
     private double tankinhalt;
     private Fahrer fahrer;
@@ -90,6 +91,11 @@ public abstract class Kfz {
     }
 
     public abstract double auslastungBerechnen();
+
+    @Override
+    public int compareTo(Kfz auto) {
+        return Double.compare(auslastungBerechnen(), auto.auslastungBerechnen());
+    }
 
     public Fahrer getFahrer() {
         return fahrer;
