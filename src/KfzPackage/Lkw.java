@@ -20,11 +20,23 @@ public class Lkw
     }
 
     public void beladen(double menge) {
+        double newLadung = ladung + menge;
 
+        if (newLadung > ladeflaeche) {
+            throw new IllegalArgumentException("you can't load more items than there is place to store it!");
+        } else {
+            ladung = newLadung;
+        }
     }
 
     public void entladen(double menge) {
+        double newLadung = ladung - menge;
 
+        if (newLadung < 0) {
+            throw new IllegalArgumentException("you can't unload more items than exist!");
+        } else {
+            setLadung(newLadung);
+        }
     }
 
     public boolean einsteigenFahrer(Fahrer fahrer) {
@@ -44,7 +56,7 @@ public class Lkw
 
     @Override
     public double auslastungBerechnen() {
-        return 0;
+        return ladung / ladeflaeche;
     }
 
     public double getLadeflaeche() {
