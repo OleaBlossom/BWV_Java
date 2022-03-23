@@ -15,7 +15,7 @@ import static java.util.Collections.*;
 public class Main {
 
     public static void main(String[] args) {
-        testKfz();
+        testMitarbeiter();
     }
 
     public static void testKfz() {
@@ -84,8 +84,18 @@ public class Main {
 
         System.out.println(listOfMitarbeiter);
 
-        sort(listOfMitarbeiter);
+        Mitarbeiter.IncomeComparator comparator = new Mitarbeiter.IncomeComparator();
 
+        sort(listOfMitarbeiter);
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("sorting by name ...");
+        System.out.println("---------------------------------------------------------------");
+        System.out.println(listOfMitarbeiter);
+
+        listOfMitarbeiter.sort(comparator);
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("sorting by income ...");
+        System.out.println("---------------------------------------------------------------");
         System.out.println(listOfMitarbeiter);
 
         System.out.println("\n\n");

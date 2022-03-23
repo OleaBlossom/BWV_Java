@@ -1,5 +1,7 @@
 package src.MitarbeiterPackage;
 
+import java.util.Comparator;
+
 public abstract class Mitarbeiter
         implements Comparable<Mitarbeiter> {
     private int id;
@@ -42,4 +44,20 @@ public abstract class Mitarbeiter
     }
 
     public abstract double einkommen();
+
+    public static class IncomeComparator implements Comparator<Mitarbeiter> {
+        @Override
+        public int compare(Mitarbeiter m1, Mitarbeiter m2) {
+            double difference = m1.einkommen() - m2.einkommen();
+            int result = -1;
+
+            if (difference == 0) {
+                result = 0;
+            } else if (difference > 0) {
+                result = 1;
+            }
+
+            return result;
+        }
+    }
 }
