@@ -8,7 +8,7 @@ import java.util.*;
 public class Abteilung {
     private String name;
     private Manager leiter;
-    private List<Mitarbeiter> alleMitarbeiter;
+    private ArrayList<Mitarbeiter> alleMitarbeiter;
 
     public Abteilung(String name, Manager leiter) {
         setName(name);

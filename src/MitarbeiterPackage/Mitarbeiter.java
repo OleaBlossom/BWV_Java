@@ -45,7 +45,7 @@ public abstract class Mitarbeiter
 
     public abstract double einkommen();
 
-    public static class IncomeComparator implements Comparator<Mitarbeiter> {
+    public static class MitarbeiterIncomeComparator implements Comparator<Mitarbeiter> {
         @Override
         public int compare(Mitarbeiter m1, Mitarbeiter m2) {
             double difference = m1.einkommen() - m2.einkommen();

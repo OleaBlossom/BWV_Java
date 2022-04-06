@@ -6,7 +6,6 @@ import src.MitarbeiterPackage.*;
 import src.VerwaltungPackage.Abteilung;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import static java.lang.Math.round;
@@ -84,7 +83,7 @@ public class Main {
 
         System.out.println(listOfMitarbeiter);
 
-        Mitarbeiter.IncomeComparator comparator = new Mitarbeiter.IncomeComparator();
+        Mitarbeiter.MitarbeiterIncomeComparator comparator = new Mitarbeiter.MitarbeiterIncomeComparator();
 
         sort(listOfMitarbeiter);
         System.out.println("---------------------------------------------------------------");
