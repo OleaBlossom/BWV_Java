@@ -32,12 +32,28 @@ public class Unternehmensverwaltung {
         this.fuhrpark = fuhrpark;
     }
 
+    public void addKfz(Kfz kfz) {
+        this.fuhrpark.add(kfz);
+    }
+
+    public void removeKfz(Kfz kfz) {
+        this.fuhrpark.remove(kfz);
+    }
+
     public ArrayList<Mitarbeiter> getPersonalliste() {
         return personalliste;
     }
 
     public void setPersonalliste(ArrayList<Mitarbeiter> personalliste) {
         this.personalliste = personalliste;
+    }
+
+    public void addMitarbeiter(Mitarbeiter mitarbeiter) {
+        this.personalliste.add(mitarbeiter);
+    }
+
+    public void removeMitarbeiter(Mitarbeiter mitarbeiter) {
+        this.personalliste.remove(mitarbeiter);
     }
 
     public LinkedList<Schichtarbeiter> getPersonallisteSchichtarbeiter() {
@@ -48,6 +64,23 @@ public class Unternehmensverwaltung {
         this.personallisteSchichtarbeiter = personallisteSchichtarbeiter;
     }
 
+    public void addMitarbeiter(Schichtarbeiter mitarbeiter) {
+        this.personalliste.add(mitarbeiter);
+        this.personallisteSchichtarbeiter.add(mitarbeiter);
+    }
+
+    public void removeMitarbeiter(Schichtarbeiter mitarbeiter) {
+        this.personalliste.remove(mitarbeiter);
+        this.personallisteSchichtarbeiter.remove(mitarbeiter);
+    }
+
+    public void addWorkingHours(int numberOfHours) {
+        for (Schichtarbeiter schichtarbeiter :
+                personallisteSchichtarbeiter) {
+            schichtarbeiter.setAnzahlStunden((schichtarbeiter.getAnzahlStunden() + numberOfHours));
+        }
+    }
+
     public TreeSet<Abteilung> getAbteilungen() {
         return abteilungen;
     }
@@ -56,5 +89,12 @@ public class Unternehmensverwaltung {
         this.abteilungen = abteilungen;
     }
 
-    // TODO: 06.04.2022 add arbeitstag() and add() + remove() for each collection
+    public void addAbteilung(Abteilung abteilung) {
+        this.abteilungen.add(abteilung);
+    }
+
+    public void removeAbteilung(Abteilung abteilung) {
+        this.abteilungen.remove(abteilung);
+    }
+
 }
